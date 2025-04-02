@@ -1,0 +1,74 @@
+{
+	"name": "ParseRequest",
+	"version": "0.1",
+	"type": "parserhook",
+	"descriptionmsg": "parserequest-desc",
+	"url": "https://codecs.vanhamel.nl/Show:Lab/ParseRequest",
+	"author": [
+		"[https://codecs.vanhamel.nl Dennis Groenewegen]"
+	],
+	"license-name": "GPL-3.0-or-later",
+	"requires": {
+		"MediaWiki": ">= 1.39.0",
+		"extensions": {
+		}
+	},
+	"MessagesDirs": {
+		"ParseRequest": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"PRMagic": "PR.i18n.php",
+		"PRAliases": "PR.i18n.aliases.php"
+	},
+	"AutoloadNamespaces": {
+		"ParseRequest\\": "src/",
+		"ParseRequest\\ParserFunctions\\": "src/ParserFunctions/",
+		"ParseRequest\\Special\\": "src/Special/"
+	},
+	"AutoloadClasses": {
+		"PRHooks": "src/PRHooks.php"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "ParseRequest\\PRHooks"
+		}
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "main"
+	},
+	"SpecialPages": {
+		"ParseRequest": "ParseRequest\\Special\\PRSpecial"
+	},
+
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "ParseRequest/modules"
+	},
+	"ResourceModules": {
+		"ext.PR.parse": {
+			"packageFiles": [
+				"ext.parse.js",
+				"ext.pagination.js"
+			],
+			"styles": [
+				"ext.parse.less"
+			]
+		},
+		"ext.pagination": {
+			"packageFiles": [
+				"ext.pagination.js"
+			]
+		},
+		"ext.pagination.style": {
+			"styles": [
+				"ext.pagination.less",
+				"ext.pagination-pf.less"
+			]
+		}
+	},
+
+	"manifest_version": 2,
+	"load_composer_autoloader": false
+}

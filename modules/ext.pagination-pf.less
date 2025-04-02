@@ -1,0 +1,83 @@
+/**
+ * Special handling for Page Forms' RunQuery pages
+ * CODECS only.
+ * menu left, results right, except on smaller screens - .mw-special-RunQuery 
+ */
+
+.page-Special_RunQuery_Query_texts,
+.page-Special_RunQuery_Query_manuscripts,
+.page-Special_RunQuery_Query_publications,
+.page-Special_RunQuery_Query_agents,
+.page-Special_RunQuery_QueryMSitems,
+.page-Special_RunQuery_Reference_query {
+	@media (min-width: 1200px) {
+		.container {
+	  		max-width: 1270px;
+		}
+	}
+
+	#mw-content-text {
+		display:flex;
+		gap: 3em;
+		& > .pf-runquery-formcontent {
+		max-width:18em;
+		width:100%;
+		}
+		& > .mw-parser-output {
+		width:100%;
+		}
+	}
+
+	@media only screen and (max-width: 992px) {
+		#mw-content-text {
+			display: block;
+			& > .pf-runquery-formcontent {
+				max-width:100%;
+				width:100%;
+			}
+			//& > .mw-parser-output {
+				//
+			//}
+		}
+	}
+
+}
+
+.page-Special_RunQuery_Reference_query {
+  #mw-content-text {
+	& > .pf-runquery-formcontent {
+	  max-width:40rem;
+	}
+  }
+}
+
+/* Form */
+#pfForm > .mw-parser-output > p:first-child {
+	margin:0;
+	padding:0;
+}
+
+.runquery-menu {
+	//background-color: #e9ecef;
+	background-color:#e0e2df;
+	padding:1rem;
+	label {
+	  display:block;
+	  font-variant: all-small-caps;
+	  color: var(--dark);
+	}
+	input, .createboxInput, .select2-container .select2-choice > .select2-chosen {
+	  background-color:#FFF;
+	}
+	.select2-container {
+	  max-width: 100%;
+	  min-width: 100% !important;
+	}
+	.select2-search {
+	  white-space:pre-wrap;
+	}
+	.select2-container-multi .select2-choices .select2-search-choice {
+	  line-height: 1.4rem;
+	}
+
+}

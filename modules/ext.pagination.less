@@ -1,0 +1,144 @@
+/* menu left, results right, except on smaller screens - .mw-special-RunQuery */
+
+@cr-dark-grey-blue: #5A7179;
+@cr-red: #ab6c5a;
+
+.cr-hidden {
+	display:none;
+}
+.cr-centred {
+	position:fixed;
+	top:40%;
+	left:50%;
+}
+.text-unavailable {
+	color: @cr-red;
+}
+
+// Parent element
+.pr-pagination-widget {
+  margin-bottom: 1rem;
+}
+// Navigation element containing indicators and ul list
+.pr-pagination-nav {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+	list-style: none;
+}
+
+.pr-pagination-widget,
+.pfquery-pagination-widget {
+	.spinner-dual-ring {
+		display: inline-block;
+		width: 80px;
+		height: 80px;
+	}
+	.spinner-dual-ring:after {
+		content: " ";
+		display: block;
+		width: 64px;
+		height: 64px;
+		margin: 8px;
+		border-radius: 50%;
+		border: 6px solid #999;
+		border-color: #999 transparent #999 transparent;
+		animation: spinner-dual-ring 1.2s linear infinite;
+	}
+	@keyframes spinner-dual-ring {
+		0% {
+		transform: rotate(0deg);
+		}
+		100% {
+		transform: rotate(360deg);
+		}
+	}
+	// li.page-link
+	.page-link {
+		color: @cr-dark-grey-blue;
+	}
+	.page-link.loading {
+		background: repeating-linear-gradient( -45deg, transparent, transparent .5rem, #ccc .5rem, #ccc 1rem);
+		animation: barberpole 2s linear infinite;
+		background-size: 200% 200%;
+	}
+	@keyframes barberpole {
+		100% {
+			background-position: 100% 100%;
+		}
+	}
+}
+
+/* ul > li.page-link > button.page-item */
+.pr-pagination {
+	margin: 0 !important;
+	flex-wrap: wrap;
+	list-style: none;
+	display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+	.page-link {
+		position: relative;
+		display: block;
+		cursor:pointer;
+		padding: 0.5rem 0.75rem;
+		margin-left: -1px;
+		line-height: 1.25;
+		//color: #1B599B;
+		color: @cr-dark-grey-blue;
+		background-color: #fff;
+		border: 1px solid #dee2e6; // rgb(222, 226, 230);
+	}
+	.page-link:hover {
+		z-index: 2;
+		color: #10345a;
+		text-decoration: none;
+		background-color: #e9ecef;
+		border-color: #dee2e6;
+	}
+	.page-link:focus {
+		z-index: 3;
+		outline: 0;
+		box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+	}
+	.page-item.active .page-link {
+		z-index: 3;
+		color: #fff;
+		//background-color: #007bff;
+		//border-color: #007bff;
+		background-color: #5A7179;
+ 		border-color: #5A7179;
+	}
+	.page-item:first-child .page-link {
+		margin-left: 0;
+		border-top-left-radius: 0.25rem;
+		border-bottom-left-radius: 0.25rem;
+	}
+}
+
+// Optionally, for large-size buttons
+.pr-pagination-lg {
+	.page-link {
+		padding: 0.75rem 1.5rem;
+		font-size: 1.25rem;
+		line-height: 1.5;		
+	}
+	.page-item:first-child .page-link {
+		border-top-left-radius: 0.3rem;
+		border-bottom-left-radius: 0.3rem;
+	}
+}
+
+// Page Forms
+.pfquery-pagination-widget {
+	margin-top:2.5em;
+	/*
+	.spinner-dual-ring {
+		position:fixed;
+		left:50%;
+		top:50%;
+	}
+	*/
+}

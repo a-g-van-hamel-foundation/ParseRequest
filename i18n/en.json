@@ -1,0 +1,5 @@
+{
+    "parserequest": "ParseRequest",
+    "parserequest-extensionname": "ParseRequest",
+    "parserequest-desc": "Provides various means to render wikitext content on demand"
+}
